@@ -14,7 +14,7 @@ def main_planner(guests: int) -> None:
             cost(tea_count=tea_bags(people=guests), treat_count=treats(people=guests))
         )
     )
-    # this function works to combine all the return values by calling functions and printing
+    # this function works to combine all the return values by calling and printing
 
 
 def tea_bags(people: int) -> int:
