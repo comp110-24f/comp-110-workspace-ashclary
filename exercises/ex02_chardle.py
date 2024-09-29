@@ -9,7 +9,7 @@ def input_word() -> str:
     )  # the input should be converted to a str to confirm he correct type
     if (
         len(five_character_word) != 5
-    ):  # this line is checking if the inputted value fits the character length
+    ):  # this line is checking if the value of the input fits the character length
         print("Error: Word must contain 5 characters.")
         exit()
     return five_character_word
@@ -49,14 +49,14 @@ def contains_char(word: str, letter: str) -> None:
         print("No instances of " + letter + " found in " + word)
     elif character_counter == 1:
         print(str(character_counter) + " instance of " + letter + " found in " + word)
-    else:  # this applies to all entries that do not fit the if and the elif
+    else:  # this else block applies to all entries that do not fit the if and the elif
         print(str(character_counter) + " instances of " + letter + " found in " + word)
 
 
 def main() -> None:
     contains_char(
         word=input_word(), letter=input_letter()
-    )  # this line works to connect all of the previous functions
+    )  # this line works to connect all of the previous functions to make use easier
 
 
 if __name__ == "__main__":
