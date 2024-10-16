@@ -4,9 +4,9 @@ __author__ = "730754494"
 
 
 def all(integer_list: list[int], number: int) -> bool:
-    """A function to check whether or not all the sting's integers equal number"""
+    """A function to check whether or not all the list's integers equal number."""
     index: int = 0
-    if integer_list == []:  # I am adding this line for an empty string specifically
+    if integer_list == []:  # I am adding this line for an empty list specifically
         return False
     while index < len(
         integer_list
@@ -21,9 +21,9 @@ def max(integer_list: list[int]) -> int:
     """A function to find the largest of integers in a list."""
     if len(integer_list) == 0:  # an error will be raised for an empty list
         raise ValueError("max() arg is an empty list")
-    largest_number: int = (
-        0  # establishing this local variable will allow for it to be returned
-    )
+    largest_number: int = integer_list[
+        0
+    ]  # establishing this local variable with the first integer in the list
     for number in integer_list:  # using a for...in... loop to go through each integer
         if number > largest_number:
             largest_number = (
