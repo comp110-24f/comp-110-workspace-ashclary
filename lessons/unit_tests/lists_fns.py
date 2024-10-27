@@ -16,3 +16,10 @@ def get_and_remove_first(input: list[str]) -> str:
     first: str = input[0]
     input.pop(0)
     return first
+
+
+def check(inp: list[int]) -> bool:
+    if len(inp) == 1:
+        return True
+    else:
+        return False

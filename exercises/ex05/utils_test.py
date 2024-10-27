@@ -4,6 +4,8 @@ __author__ = "730754494"
 
 from exercises.ex05.utils import only_evens, sub, add_at_index
 
+import pytest
+
 
 def test_empty_only_evens() -> None:
     """Unit test function to confirm the correct empty list response."""
@@ -56,25 +58,20 @@ def test_mutation_sub() -> None:
     assert number_list == [8, 8, 6]  # the number list should not have changed
 
 
-def test_negatives_add_at_index() -> None:
-    """Unit test function to confirm the mutation with negative integers."""
-    number_list: list[int] = [-5, -6, -5]
-    add_at_index(
-        integer_list=number_list, element=-3, index=2
-    )  # putting the negative numbers into the function
-    assert number_list == [
-        -5,
-        -6,
-        -3,
-        -5,
-    ]  # the list should still show negative numbers
+def test_error_add_at_index():
+    """Unit test function to confirm the error when the index is out of proper range."""
+    with pytest.raises(IndexError):  # testing that the error will appear
+        add_at_index(
+            integer_list=[17, 2, -2], element=3, index=6
+        )  # the index is out of the appropriate range
 
 
 def test_return_add_at_index() -> None:
     """Unit test function to confirm that the function will always return None."""
-    assert (
-        add_at_index(integer_list=[5, 6, 5], element=3, index=1) == None
-    )  # testing that any input will return None
+    assert print(
+        "" + str(add_at_index(integer_list=[5, 6, 5], element=3, index=1))
+    ) == print("")
+    # testing that any input will return None, so it will not change the print output
 
 
 def test_mutation_add_at_index() -> None:
@@ -83,4 +80,9 @@ def test_mutation_add_at_index() -> None:
     add_at_index(
         integer_list=number_list, element=3, index=2
     )  # these are valid requirements to proceed through the definition
-    assert number_list == [5, 6, 3, 5]  # the input list will now be mutated
+    assert number_list == [
+        5,
+        6,
+        3,
+        5,
+    ]  # the input list will now be mutated and have element

@@ -49,15 +49,17 @@ def sub(integer_list: list[int], index_start: int, index_end: int) -> list[int]:
 def add_at_index(integer_list: list[int], element: int, index: int) -> None:
     """Function to put the element at the index in the list."""
     if index < 0 or index > (
-        len(integer_list) + 1
+        len(integer_list)
     ):  # an out-of-range index will lead to an error message
         raise IndexError("Index is out of bounds for the input list")
     else:
         integer_list.append(0)  # appending an element to create more room
-        for idx in range(
-            index + 1, len(integer_list)
-        ):  # going through the integers to the right of the index
+        idx: int = len(integer_list) - 1  # the idx will go through the list of integers
+        while idx > index:
             integer_list[idx] = integer_list[
                 idx - 1
-            ]  # shifting the integers to the right to allow more room
-        integer_list[index] = element  # putting the element at the index
+            ]  # I am shifting the integers to the right
+            idx -= 1
+        integer_list[index] = (
+            element  # putting the element at the index with the newly available room
+        )
